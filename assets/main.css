@@ -1,0 +1,155 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+body {
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: #4c84e0;
+  }
+  header {
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+  }
+  footer {
+    padding:5px;
+    height: 20px;
+    font-style: italic;
+    color: white;
+  }
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 30px;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr; /* 3개의 열 생성 */
+    gap: 5px; /* 열 사이의 간격 설정 */
+  }
+  
+  .chat-default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%; 
+  }
+  
+  .grid-item {
+    height: 550px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-y: auto;
+  }
+  
+  .user-list {
+    margin: 5px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    border: none;
+    text-align: left;
+  }
+  
+  .user-list:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+  
+  .chat-list {
+    margin: 5px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  .chat-list:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+  
+  .chat-room {
+    height: 80%;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow-y: auto;
+  }
+  
+  .chat-room > div {
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .chat-room-content-send {
+    background-color: rgba(255, 255, 0, 0.671);
+    text-align: right;
+  }
+  
+  .chat-room-content-receive {
+    background-color: white;
+    text-align: left;
+  }
+  
+  .chat-write {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: 5px, 5px, 5px, 5px;
+    height:15%;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .chat-write-content {
+    margin:10px;
+    padding:3px;
+    flex-grow: 1;
+    border: 0;
+    height: 60px;
+    text-align: left;
+    overflow-y: auto;
+  }
+  
+  .chat-write-sendbutton {
+    margin:20px;
+  }
+  
+  .chat-write-sendbutton:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+  
+  .usericon {
+    display: inline-block;
+    width: 30px; height: auto;
+  }
+  
+  .icon button {
+    background-color: #f0f0f0;
+    margin-bottom:10px;
+    border-color: #f0f0f0;
+  }
+  
+  button:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+  
+  #Person-Icon{
+    border: none;
+    height:40px;
+  }
+  
+  #Messenger-Icon{
+    height:40px;
+  }
+  
