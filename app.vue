@@ -11,7 +11,7 @@
         <button @click="messengermodalOn()"><img id="Messenger-Icon" src="./assets/img/icon-message.png" alt="Messenger Icon"></button>
       </div>
     </div> -->
-    <Sidebar :personmodal="personmodal" :messengermodal="messengermodal"/>
+    <Sidebar @update-modals="handleUpdateModals" :personmodal="personmodal" :messengermodal="messengermodal"/>
 
                           <!-- 유저(친구) 조회 모달 -->   
     <div class="grid-item">
@@ -121,14 +121,18 @@ export default {
     //console.log(typeof this.personmodal);
   },
   mounted() {
-    // 1초마다 this.modal을 출력하는 함수 설정
-    this.interval = setInterval(() => {
-      console.log(this.personmodal);
-    }, 1000);
+   
   },
   computed:{
   },
   methods: {
+    handleUpdateModals(payload) {
+      // 전달된 payload를 사용하여 personmodal과 messengermodal 값을 수정
+      this.personmodal = payload.personmodal;
+      this.messengermodal = payload.messengermodal;
+      console.log('personmodal: ' + this.personmodal);
+      console.log('messengermodal: ' + this.messengermodal);
+    },
     personmodalOn() {
       this.personmodal = true;
       this.messengermodal = false;
