@@ -1,8 +1,8 @@
 <template>
-    <div v-if="personmodal == true">
-        <div v-for="(user, index) in users" :key="index" class="user-list" @click="chatmodalOn(user)">
-          <img :src="require(`@/assets/img/usericon${user.icon}.png`)" alt="usericon"  class="usericon">
-          <h4 style="display:inline-block;">{{ user.user }}</h4>
+    <div>
+        <div v-for="(user, index) in friends" :key="index" class="user-list" @click="choiceUser(user.name)">
+          <img :src="'/_nuxt/assets/img/usericon' + user.icon + '.png'" alt="usericon" class="usericon">
+          <h4 style="display:inline-block;">{{ user.name }}</h4>
         </div>
       </div>
 </template>
@@ -11,8 +11,13 @@
 
 export default {
     props: {
-        users: Array,
+        friends: Array,
         personmodal: Boolean,
+    },
+    methods: {
+        choiceUser(name) {
+            this.$emit('choiceUser', name );
+        }
     },
     
 }

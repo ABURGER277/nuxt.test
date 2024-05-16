@@ -83,18 +83,18 @@ body {
     overflow-y: auto;
   }
   
-  .chat-room > div {
+  .chat-room-content-send {
     margin: 15px;
     padding: 10px;
     border-radius: 10px;
-  }
-  
-  .chat-room-content-send {
     background-color: rgba(255, 255, 0, 0.671);
     text-align: right;
   }
   
   .chat-room-content-receive {
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
     background-color: white;
     text-align: left;
   }

@@ -1,16 +1,16 @@
 export default [
-    {user:'Cupper', icon:'1'},
-    {user:'Tom', icon:'2'},
-    {user:'Zenon', icon:'3'},
-    {user:'Sun', icon:'4'},
-    {user:'Kay', icon:'1'},
-    {user:'Wiskey', icon:'4'},
-    {user:'Rain', icon:'3'},
-    {user:'Yong', icon:'6'},
-    {user:'Judy', icon:'5'},
-    {user:'Ruby', icon:'6'},
-    {user:'Frozz', icon:'2'},
-    {user:'Sands', icon:'4'},
-    {user:'Genie', icon:'5'},
-    {user:'Tester', icon:'2'}
-];
+    {name:'Cupper', icon:'1'},
+    {name:'Tom', icon:'2'},
+    {name:'Zenon', icon:'3'},
+    {name:'Sun', icon:'4'},
+    {name:'Kay', icon:'1'},
+    {name:'Wiskey', icon:'4'},
+    {name:'Rain', icon:'3'},
+    {name:'Yong', icon:'6'},
+    {name:'Judy', icon:'5'},
+    {name:'Ruby', icon:'6'},
+    {name:'Frozz', icon:'2'},
+    {name:'Sands', icon:'4'},
+    {name:'Genie', icon:'5'},
+    {name:'Tester', icon:'2'}
+]
