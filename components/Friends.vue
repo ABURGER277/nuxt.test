@@ -8,7 +8,6 @@
 </template>
 
 <script>
-
 export default {
     props: {
         friends: Array,
@@ -19,6 +18,5 @@ export default {
             this.$emit('choiceUser', name );
         }
     },
-    
 }
 </script>

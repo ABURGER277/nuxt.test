@@ -10,13 +10,13 @@
                           <!-- 친구리스트 / 채팅방 리스트 -->   
     <div class="grid-item">
       <Friends @choiceUser="choiceUser" v-if="friendsMenu==true" :friends="friends"/>
-      <Chatroomlist v-if="chatListMenu==true"/>
+      <Chatroomlist @choiceUser="choiceUser" v-if="chatListMenu==true" :friends = "friends" :chatData="chatData"/>
     </div>
 
     <!-- 채팅창 -->
     <div class="grid-item">
         <DefaultChatRoom v-if="user=='default'" :chatData="chatData"/>
-        <ChatRoom v-else :chatData="chatData" :user="user"/>  
+        <ChatRoom @updateChatData="updateChatData" v-else :chatData="chatData" :user="user"/>  
     </div>
   </div>
 
@@ -27,26 +27,15 @@
 </template>
 
 <script>
-import Friends from '@/components/Friends.vue';
-import Sidebar from '@/components/Sidebar.vue';
-import chatroomlists from '@/components/Chatroomlist.vue'
-import ChatRoom from '@/components/ChatRoom.vue'
 import axios from 'axios'
 
 export default {
-  // nuxt.config.ts에서 정의해 주었기에 더이상 import하지 않는다.
-  components: {
-    Sidebar,
-    Friends,
-    chatroomlists,
-    ChatRoom,
-   },
 
   data() {
     return {
       chatmodal: false,
-      friendsMenu: false,
-      chatListMenu: true,
+      friendsMenu: true,
+      chatListMenu: false,
       friends: [],
       user: 'default',
       chatData: [],
@@ -55,7 +44,10 @@ export default {
   mounted() {
     axios.get('http://localhost:3001/userdata').then(userData => {
       this.friends = userData.data;
-    })
+    }),
+    axios.get('http://localhost:3001/messagedata').then( messageData => {
+        this.chatData = messageData.data;
+      })
   },
   methods: {
     handleMenu(data) {
@@ -63,43 +55,14 @@ export default {
       this.friendsMenu = data.friendsMenu;
       this.chatListMenu = data.chatListMenu;
     },
-    friendsMenuOn() {
-      this.friendsMenu = true;
-      this.chatListMenu = false;
-    },
     choiceUser(user) {
-      axios.get('http://localhost:3001/messagedata').then( messageData => {
+      this.user = user;
+    },
+    updateChatData() {
+       axios.get('http://localhost:3001/messagedata').then( messageData => {
         this.chatData = messageData.data;
       })
-      this.user = user;
-      //console.log(this.chatData);
-    },
-    chatListMenuOn() {
-      this.friendsMenu = false;
-      this.chatListMenu = true;
-    },
-    chatmodalOn() {
-      this.chatmodal = true;
-      
-    },
-    getChatData() {
-        axios.get('http://localhost:3001/messagedata').then( a => {
-            console.log(a)
-        }).catch(e =>{
-          console.log(e)
-        })
-    },
-    handleEnter(event) {
-    // 엔터 키가 눌렸을 때 실행할 코드
-      if (!event.shiftKey) { // 쉬프트 키와 함께 눌리지 않은 경우에만 실행
-        this.sendMessage();
-      }
-    },
-    sendMessage() {  
-      let content = document.getElementById("content").innerHTML; 
-      console.log(content);
-      document.getElementById("content").innerHTML='';
     }
-  }
+  },
 }
 </script>

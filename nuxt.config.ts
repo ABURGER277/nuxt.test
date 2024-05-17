@@ -5,13 +5,5 @@
 
 //nuxt2.X 까지는 export default({})를 통해 coinfig를 작성하였다.
 export default defineNuxtConfig({
-  //devtools: { enabled: true }, 기본 설정이다. alt+shift+d 할 시 편리한 nuxt용 개발자 도구를 지원한다.
-  css: ['~/assets/main.css'], // css환경설정
-  components: [ // 컴포넌트 환경설정
-    {
-      path: '~/components', // 컴포넌트 기본 디렉토리 지정.
-      pathPrefix: false, //
-    }
-  ],
-  
+  css: ['~/assets/main.css'],
 })
