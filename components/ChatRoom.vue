@@ -63,19 +63,14 @@ export default {
             const timeZone = 'Asia/Seoul';
             const options = { timeZone, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
 
-            // Get the formatted date string
             const date = new Date();
             const dateString = date.toLocaleString('en-US', options);
-            
-            // Split the date string into date and time
+
             const [datePart, timePart] = dateString.split(', ');
             const [month, day, year] = datePart.split('/');
             const [hour, minute, second] = timePart.split(':');
 
-            // Format the date to the desired output
             const koreanTime = `${year}-${month}-${day}T${hour}:${minute}:${second}`;
-            console.log(koreanTime);
-            console.log(content);
             axios.post('http://localhost:3001/messagedata', {
                 Sender: "Genie",
                 Recipient: this.user,

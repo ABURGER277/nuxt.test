@@ -1,8 +1,9 @@
 <template>
     <div>
       <div v-for="(chat, index) in chatList" :key="index" class="chat-list" @click="choiceUser(chat[0])">
-        <h4 style="margin: 0">{{ chat[0] }}</h4>
-        <p style="margin: 5px">{{ chat[1].Content }}</p><small>{{ formatedDate(chat[1].Timestamp) }}</small>
+        <h4 style="display:inline-block; margin: 0">{{ chat[0] }}</h4>
+        <p style="margin: 5px">&nbsp;{{ chat[1].Content }}</p>
+        <small>&nbsp;&nbsp;{{ formatedDate(chat[1].Timestamp) }}</small>
       </div>
     </div>
 </template>
@@ -10,14 +11,11 @@
 
 export default {
     props: {
-        friends: Array,
         chatData: Array,
     },
     data() {
       return {
-        username: '',
         chatList: [],
-        //reversedMap:Map,
       }
     },
     setup() {
@@ -37,7 +35,8 @@ export default {
       updateChatList() {
         const uniqueKeys= {};
         let tempoName;
-        let reservedChatData=[];
+        const reservedChatData=[];
+        // for( ) {} 
         this.chatData.slice().reverse().forEach(element => {
           if (element.Recipient == 'Genie') {
               tempoName = element.Sender;
@@ -50,7 +49,7 @@ export default {
           }
         })
         this.chatList = reservedChatData;
-      }
+      },
     },
    
     watch: {

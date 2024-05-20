@@ -13,7 +13,7 @@ export function useFormatDate(inputDate) {
         const ampm = hours >= 12 ? '오후' : '오전';
 
         hours = hours % 12;
-        hours = hours ? hours : 12;
+        hours = hours==0 ? 12 : hours;
 
         return `${month} ${day}일 ${ampm} ${hours}:${minutes}`;
     

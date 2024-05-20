@@ -84,7 +84,7 @@ body {
   }
   
   .chat-room-content-send {
-    margin: 15px;
+    margin: 15px 15px 15px 30%;
     padding: 10px;
     border-radius: 10px;
     background-color: rgba(255, 255, 0, 0.671);
@@ -92,7 +92,7 @@ body {
   }
   
   .chat-room-content-receive {
-    margin: 15px;
+    margin: 15px 30% 15px 15px;
     padding: 10px;
     border-radius: 10px;
     background-color: white;

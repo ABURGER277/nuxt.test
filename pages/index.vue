@@ -10,7 +10,7 @@
                           <!-- 친구리스트 / 채팅방 리스트 -->   
     <div class="grid-item">
       <Friends @choiceUser="choiceUser" v-if="friendsMenu==true" :friends="friends"/>
-      <Chatroomlist @choiceUser="choiceUser" v-if="chatListMenu==true" :friends = "friends" :chatData="chatData"/>
+      <Chatroomlist @choiceUser="choiceUser" v-if="chatListMenu==true" :chatData="chatData"/>
     </div>
 
     <!-- 채팅창 -->
@@ -47,11 +47,10 @@ export default {
     }),
     axios.get('http://localhost:3001/messagedata').then( messageData => {
         this.chatData = messageData.data;
-      })
+    })
   },
   methods: {
     handleMenu(data) {
-      // 전달된 payload를 사용하여 friendsMenu과 chatListMenu 값을 수정
       this.friendsMenu = data.friendsMenu;
       this.chatListMenu = data.chatListMenu;
     },
@@ -59,7 +58,7 @@ export default {
       this.user = user;
     },
     updateChatData() {
-       axios.get('http://localhost:3001/messagedata').then( messageData => {
+      axios.get('http://localhost:3001/messagedata').then( messageData => {
         this.chatData = messageData.data;
       })
     }
